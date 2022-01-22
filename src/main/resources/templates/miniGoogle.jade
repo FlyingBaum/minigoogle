@@ -1,0 +1,26 @@
+html
+    head
+        link(rel='stylesheet', href='style.css', type='text/css')
+        title Search
+    body
+    form(method='post')
+      fieldset
+        legend
+          h1 Search
+        div(class='search')
+          div
+            label(for='search' id='textLabel') Query term - in title
+          input#search(type='text' name='search' value='')
+          label(for='caseSensitive') case sensitive
+          input#caseSensitive(type='checkbox' value='caseSensitive' name='caseSensitive')
+          label(for='wholeWord') whole word
+          input#wholeWord(type='checkbox' value='wholeWord' name='wholeWord')
+          div
+            button(type='submit') submit
+      div
+        ul
+          for comic in searchResults
+            li
+              a(href='#{comic.link}')
+                p(class='alt') #{comic.alt}
+              p(class='title') #{comic.title}
